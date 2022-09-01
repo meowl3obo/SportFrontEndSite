@@ -1,0 +1,114 @@
+@import "../scroll";
+
+.title {
+    height: 25px;
+    background-color: var(--third-color);
+    display: flex;
+    align-items: center;
+    color: var(--main-font);
+    padding: 5px 20px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--third-border);
+    cursor: default;
+}
+.table-scroll {
+    overflow-x: auto;
+
+    @extend %scroll !optional;
+}
+.live-div-table {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    color: var(--main-font);
+    // table-layout: fixed;
+}
+.live-div-thead {
+    font-weight: bold;
+    font-size: 14px;
+}
+.live-div-tbody {
+    font-size: 12px;
+}
+.live-div-tr {
+    display: table-row;
+}
+.live-div-tr:nth-child(n + 2) {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        border-bottom: 1px solid 30;
+        width: 100%;
+        right: 0;
+        bottom: 0;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        border-left: 2px solid var(--minor-border);
+        height: 80%;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &:hover {
+        transform: scale(1.003) translateX(-3px);
+        background-color: var(--backdrop);
+    }
+}
+.live-div-td {
+    display: table-cell;
+    padding-inline: 5px;
+    text-align: center;
+    height: 100%;
+
+    &:nth-child(1) > div {
+        position: relative;
+        transform: translateY(20%);
+    }
+    &:nth-child(n + 2) > div {
+        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+    }
+    .links-div {
+        height: 44px;
+        padding-block: 5px;
+        white-space: nowrap;
+    }
+}
+.link {
+    & > span {
+        cursor: pointer;
+        padding-inline: 5px;
+    }
+    & > span:hover {
+        box-shadow: 1px 0.5px 5px -2px var(--main-shadow);
+        border-radius: 5px;
+    }
+}
+.odd > div {
+    display: flex;
+    min-height: 18px;
+    justify-content: center;
+    white-space: nowrap;
+    & > div {
+        width: 50%;
+        white-space: nowrap;
+    }
+    & > div:nth-child(1) {
+        padding-right: 4px;
+        text-align: right;
+    }
+    & > div:nth-child(2) {
+        padding-left: 4px;
+        text-align: left;
+    }
+}
+.collapse {
+    overflow: auto !important;
+    transition: height 0.3s ease;
+}

@@ -1,0 +1,48 @@
+.d-flex {
+    display: flex !important;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.paln {
+    margin-left: 50px;
+    max-width: 200px;
+    min-width: 100px;
+}
+
+.paln-start {
+    max-width: 200px;
+    min-width: 100px;
+}
+
+.wallet {
+    margin-left: auto !important;
+    margin-bottom: 15px !important;
+}
+
+.next-btn-div {
+    text-align: right;
+
+    button {
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 1px solid var(--minor-border);
+        background-color: transparent;
+        color: var(--minor-font);
+        font-weight: bold;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: var(--main-color);
+            color: var(--bg-color);
+        }
+
+        &:disabled {
+            background-color: var(--disabled-color) !important;
+            color: var(--minor-font) !important;
+        }
+    }
+}

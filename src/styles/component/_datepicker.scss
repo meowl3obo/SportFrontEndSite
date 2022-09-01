@@ -1,0 +1,177 @@
+@mixin scroll($height: 0, $width: 0, $bgc: var(--scorll-color), $hover: true) {
+    &::-webkit-scrollbar-thumb {
+        background-color: $bgc;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        // @if $height != 0 {
+        //     height: $height;
+        // }
+        // @if $width != 0 {
+        //     width: $width;
+        // }
+        height: $height;
+        width: $width;
+    }
+    @if $hover {
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: var(--hover-scorll-color);
+        }
+    }
+}
+
+.search-date {
+    text-align: left;
+    padding-inline: 5px;
+    user-select: none;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+}
+.search-year-title {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 2px;
+    font-weight: bold;
+    font-size: 15px;
+
+    .year-picker {
+        position: relative;
+        display: flex;
+        line-height: 25px;
+        width: 25px;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            &::after {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                width: 30px;
+                height: 30px;
+                border-radius: 25px;
+                background-color: var(--third-color-op);
+                box-shadow: 0px 0px 10px 3px var(--third-color-op);
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translatey(-50%);
+            }
+        }
+    }
+}
+.search-date-content {
+    width: 240px;
+    background-color: var(--bg-color);
+    z-index: 10;
+    color: var(font-color);
+    padding: 4px;
+    font-weight: bold;
+
+    hr {
+        margin-block: 0.2em;
+        border-color: var(font-color);
+    }
+
+    table {
+        width: 100%;
+        user-select: none;
+
+        td {
+            padding: 1px;
+            text-align: center;
+        }
+
+        tbody {
+            td {
+                position: relative;
+                &[notcurrentmonth="true"] {
+                    opacity: 0.7;
+                    font-weight: normal;
+                }
+                &[current="true"]::after {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 25px;
+                    background-color: var(--third-color) !important;
+                    box-shadow: 0px 0px 10px 3px var(--third-color);
+                    left: 50%;
+                    top: 50%;
+                    transform: translateX(-50%) translatey(-50%);
+                }
+                &[current="true"] {
+                    border-radius: 25px;
+                    background-color: var(--third-color) !important;
+                    box-shadow: 0px 0px 10px 3px var(--third-color);
+                }
+            }
+            td:hover {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 25px;
+                    background-color: var(--third-color-op);
+                    box-shadow: 0px 0px 10px 3px var(--third-color-op);
+                    left: 50%;
+                    top: 50%;
+                    transform: translateX(-50%) translatey(-50%);
+                }
+            }
+        }
+    }
+
+    .reset {
+        text-align: right;
+
+        button {
+            background-color: transparent;
+            border: 1px solid var(--danger-color);
+            border-radius: 5px;
+            color: var(--danger-color);
+            font-weight: 600;
+            padding: 1px 10px;
+            transition: all 0.15s ease-in-out;
+
+            &:hover {
+                background-color: var(--danger-color);
+                color: var(--bg-color);
+            }
+        }
+    }
+
+    .set-time {
+        display: flex;
+        align-items: center;
+        padding-inline: 10px;
+
+        & > div {
+            padding-right: 10px;
+        }
+        .set-hour,
+        .set-min {
+            padding: 2px 5px;
+            background-color: var(--bg-color);
+            color: var(--font-color);
+            font-weight: bold;
+        }
+
+        select {
+            @include scroll($width: 5px, $hover: true);
+        }
+    }
+}
+
+.date-enter-active,
+.date-leave-active {
+  transition: opacity 0.25s ease-in;
+}
+
+.date-enter-from,
+.date-leave-to {
+  opacity: 0;
+}

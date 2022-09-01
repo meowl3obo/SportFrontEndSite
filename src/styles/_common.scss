@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+@import "./scroll";
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: unset;
+    background-color: var(--bg-color);
+    font-family: "Noto Sans TC", sans-serif;
+    @extend %scroll;
+}
+
+:root {
+    --backdrop-color: #30363399;
+    --bg-color: #0f1110;
+    --seven-bg-color: #0f111070;
+    --five-bg-color: #0f111050;
+    --modal-bg-color: #0f1110;
+    --hover-bg-color: #1a2632;
+    --notlive-bg-color: #1a2632;
+    --textarea-bg-color: #ffffff10;
+    --bg-card: #343444;
+    --minor-bg-card: #ababab;
+    --backdrop: #30363399;
+    --main-color: #618730;
+    --minor-color: #7e0234;
+    --third-color: #232323;
+    --disabled-color: #ffffff10;
+    --main-font: #dedede;
+    --winner-font: #ffffff;
+    --loser-font: #dedede80;
+    --minor-font: #618730;
+    --third-font: #0f1110;
+    --sub-font: #767777;
+    --op-main-border: #c4c4c430;
+    --minor-border: #618730;
+    --third-border: #0f1110;
+    --input-border: #7e0234;
+    --white-border: #c0c0c0;
+    --input-focus-border: #618730;
+    --main-shadow: #ffffff45;
+    --minor-shadow: #0f111045;
+    --non-img: #c4c4c4;
+    --dark-danger-color: #791b1b;
+    --success-color: #549f3c;
+    --warning-color: #989f3c;
+    --hint-success: #549f3c;
+    --hint-danger: #c22424;
+    --hint-warning: #ad6010;
+}
+
+@mixin mixin-pc {
+    @media screen and (min-width: 869px) {
+        @content;
+    }
+}
+
+@mixin mixin-phone {
+    @media screen and (max-width: 868px) {
+        @content;
+    }
+}
+
+@mixin mixin-transtion {
+    @media screen and (min-width: 869px) and (max-width: 868px) {
+        @content;
+    }
+}
+
+// @include mixin-phone {
+//     html {
+//         position: fixed;
+//     }
+// }
+
+.modal-button {
+    height: 30px;
+    padding: 2px 10px;
+    border-radius: 25px;
+    border: 2px solid var(--input-border);
+    background-color: transparent;
+    color: var(--main-font);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.modal-button:hover {
+    border-color: var(--input-focus-border);
+    background-color: var(--input-focus-border);
+}
+
+.collapse {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}

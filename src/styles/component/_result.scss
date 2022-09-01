@@ -1,0 +1,54 @@
+.result {
+    padding: 1px;
+    height: 99% !important;
+    color: var(--main-font);
+}
+
+.d-flex {
+    display: flex !important;
+
+    .header-box {
+        margin-right: auto !important;
+    }
+
+    .datepicker {
+        margin-left: auto !important;
+        align-self: center;
+
+        input {
+            height: 30px;
+        }
+
+        .hide {
+            padding: 3px;
+        }
+
+        .active {
+            min-width: 240px !important;
+            border: 2px solid var(--main-font) !important;
+        }
+
+        .closed {
+            min-width: 240px !important;
+            border: 1px solid var(--main-font) !important;
+        }
+
+        // border: 1px solid var(--main-font);
+    }
+
+    .picker-outside {
+        position: absolute;
+        z-index: 50;
+        border: 1px solid #dedede80;
+    }
+}
+
+.winner {
+    color: var(--winner-font) !important;
+}
+.tie {
+    color: var(--main-font) !important;
+}
+.loser {
+    color: var(--loser-font) !important;
+}

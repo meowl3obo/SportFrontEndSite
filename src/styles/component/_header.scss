@@ -1,0 +1,158 @@
+@import "@/styles/_common.scss";
+@include mixin-phone {
+  .header {
+    padding: 10px 20px;
+    width: calc(100vw - 40px);
+  }
+  .control {
+    display: none !important;
+  }
+  .login-content {
+    display: none !important;
+  }
+}
+@include mixin-pc {
+  .header {
+    padding: 10px 40px;
+    width: calc(100vw - 80px);
+    justify-content: space-between;
+  }
+  .sidbar-control {
+    display: none;
+  }
+}
+.header {
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  height: 59px;
+  background-color: var(--seven-bg-color);
+  color: var(--main-font);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--op-main-border);
+  backdrop-filter: blur(7px);
+}
+.title {
+  color: var(--minor-font);
+  & > h2 {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+}
+.control {
+  display: flex;
+  justify-content: center;
+
+  & > div {
+    cursor: pointer;
+  }
+  & > div:hover {
+    transform: scale(1.1);
+  }
+  span {
+    padding-inline: 10px;
+  }
+}
+.sub-control {
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--backdrop);
+  backdrop-filter: blur(7px);
+  color: var(--main-font);
+  overflow: hidden;
+  height: 175px;
+  z-index: 1;
+
+  .control-content {
+    background-color: var(--five-bg-color);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(max-content, 100px));
+    justify-content: center;
+    padding-block: 10px;
+    background-color: transparent;
+
+    & > div {
+      padding: 4px 20px;
+      cursor: pointer;
+    }
+    & > div:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  .close {
+    position: relative;
+  }
+  .close span {
+    position: absolute;
+    top: 7px;
+    padding: 3px;
+    cursor: pointer;
+    font-family: PMingLiU;
+  }
+}
+.user-control {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--backdrop);
+  backdrop-filter: blur(7px);
+  color: var(--main-font);
+  overflow: hidden;
+  height: 240px;
+  z-index: 1;
+
+  .control-content {
+    background-color: var(--five-bg-color);
+    width: 95%;
+    justify-content: center;
+    padding-block: 5px;
+    background-color: transparent;
+
+    hr {
+      margin-block: 0.2em;
+    }
+
+    & > div {
+      &.wallet {
+        display: flex;
+        justify-content: space-between;
+        div {
+          min-width: 30%;
+          font-size: 14px;
+          &:nth-child(2) {
+            padding-left: 3px;
+          }
+        }
+      }
+      padding: 4px 10px;
+    }
+
+    .uesr-link {
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+  }
+}
+.login {
+  cursor: pointer;
+}
+.user {
+  cursor: pointer;
+  svg {
+    width: 0.625em;
+  }
+}
+.sidbar-control {
+  padding-right: 20px;
+}
